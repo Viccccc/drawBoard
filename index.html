@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>画图板</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="index.css">
+	<script src="index.js"></script>
+</head>
+<body>
+	<header>CANVAS画图板</header>
+	<div class="screen">
+		<!-- 侧栏  功能栏开始 -->
+		<aside class="function-bar">
+		<!-- 线段的宽度 -->
+			<div class="function-item">
+				<label for="lineWidth" class="function-label">请选择线宽:</label>
+				<input type="range" id="lineWidth" min="1" max="20" value="1" onclick="getValue(this)">
+				<span id="showWidth" class="show">1</span>
+			</div>
+<!-- 线段的颜色 -->
+			<div class="function-item">
+				<label for="lineColor" class="function-label">请选择线条的颜色:</label>
+					<div>
+						<label for="strokeColor">描边颜色</label>
+						<input type="color" id="strokeColor" value="#333333">
+						<span id="showStrokeColor" class="show">#333333</span>
+					</div>
+					<div>
+						<label for="fillColor">填充颜色</label>
+						<input type="color" id="fillColor" value="#333333">
+						<span id="showFillColor" class="show">#333333</span>
+					</div>
+			</div>
+<!-- 绘制形状 -->
+			<div class="function-item">
+				<label  class="function-label">请选择绘制形状:</label>
+				<label for="point">
+					<input type="radio" value="point" id='line' name="shape">
+					画笔
+				</label>
+				<label for="line">
+					<input type="radio" value="line" id="line" name="shape" checked>
+					线
+				</label>
+				<label for="rect">
+					<input type="radio" value="rect" id="rect" name="shape">
+					矩形
+				</label>
+				<label for="circle">
+					<input type="radio" value="circle" id="circle" name="shape">
+					椭圆
+				</label>
+				<label class="function-label">请选择填充或描边</label>
+				<label for="fill">
+					<input type="radio" name="way" id="fill" value="fill" disabled>
+					填充
+				</label>
+				<label for="stroke">
+					<input type="radio" name="way" id="stroke" value="stroke" checked>
+					描边
+				</label>
+				<label class="function-label">请选择是否为连续线段:</label>
+				<label for="continuity">
+					<input type="radio" name="c" id="continuity" value="continuity" checked>
+					连续线段
+				</label>
+				<label for="discontinuity">
+					<input type="radio" name="c" id="discontinuity" value="discontinuity">
+					不连续线段
+				</label>
+			</div>
+			<div class="function-item">
+				<label class="db" for="eraser">橡皮擦半径:<input type="range" min="5" max="50" value="20" id="eraser"><span id="showEraser">20</span></label>
+				<button id="eraserBtn">橡皮擦</button>
+				<button id="clear">清空画布</button>
+			</div>
+			<p class="tip">小提示:</p>
+			<p class="tip-content">选中椭圆,按下ctrl画圆形</p>
+		</aside>
+		<!-- 功能栏开始 -->
+		<main class="canvas-container">
+			<canvas id="canvas"></canvas>
+			<div id="rubberRandDiv"></div>
+		</main>
+
+	</div>
+</body>
+</html>
